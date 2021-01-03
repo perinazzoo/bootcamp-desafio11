@@ -69,11 +69,16 @@ const Dashboard: React.FC = () => {
         params.category = selectedCategory;
       }
 
-      const response = await api.get('/foods', {
+      const response = await api.get<Food[]>('/foods', {
         params,
       });
 
-      setFoods(response.data);
+      const data = response.data.map(item => ({
+        ...item,
+        formattedPrice: formatValue(item.price),
+      }));
+
+      setFoods(data);
     }
 
     loadFoods();
