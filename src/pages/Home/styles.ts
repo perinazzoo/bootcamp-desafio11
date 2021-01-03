@@ -31,6 +31,7 @@ export const ButtonText = styled.Text`
   font-size: 15px;
   line-height: 22px;
   color: #7a1818;
+  font-weight: bold;
   flex: 1;
   text-align: center;
 `;
